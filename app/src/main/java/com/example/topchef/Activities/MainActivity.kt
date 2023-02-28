@@ -7,7 +7,9 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.topchef.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -26,37 +28,44 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        GlobalScope.async {
-            executeRequest("https://api.spoonacular.com/recipes/complexSearch")
+        //GlobalScope.async {
+        //    executeRequest("https://api.spoonacular.com/recipes/complexSearch")
             //?query dans l'url pour rechercher un ingrédient
 
-        }
+        //}
 
         auth = Firebase.auth
 
         val email = findViewById<EditText>(R.id.Login)
         val mdp = findViewById<EditText>(R.id.Mdp)
+        val Title2 = findViewById<TextView>(R.id.textView2)
 
         val buttonClick = findViewById<Button>(R.id.connection_button)
         buttonClick.setOnClickListener {
-            auth.signInWithEmailAndPassword(email.text.toString(), mdp.text.toString())
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        // Authentication succeeded, start new activity
-                        val intent = Intent(this@MainActivity, RecetteActivity::class.java)
-                        startActivity(intent)
+            if (email.text.toString().isEmpty() == false && mdp.text.toString().isEmpty() == false){
+                auth.signInWithEmailAndPassword(email.text.toString(), mdp.text.toString())
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            // Authentication succeeded, start new activity
+                            val intent = Intent(this@MainActivity, RecetteActivity::class.java)
+                            startActivity(intent)
 
-                        // Log success message
-                        Log.d(TAG, "Authentication succeeded, starting RecetteActivity")
-                    } else {
-                        // Authentication failed, show error message
-                        val errorMessage = task.exception?.message ?: "Unknown error"
-                        Toast.makeText(this@MainActivity, errorMessage, Toast.LENGTH_SHORT).show()
+                            // Log success message
+                            Log.d(TAG, "Authentication succeeded, starting RecetteActivity")
+                        } else {
+                            // Authentication failed, show error message
+                            Title2.setText("Identifiant non valide")
+                            val errorMessage = task.exception?.message ?: "Unknown error"
+                            Toast.makeText(this@MainActivity, errorMessage, Toast.LENGTH_SHORT).show()
 
-                        // Log error message
-                        Log.d(TAG, "Authentication failed: $errorMessage")
+                            // Log error message
+                            Log.d(TAG, "Authentication failed: $errorMessage")
+                        }
                     }
-                }
+            }
+            else{
+                Title2.setText("Identifiant non valide")
+            }
         }
         val inscripClick = findViewById<Button>(R.id.tosignup_button)
         inscripClick.setOnClickListener {
