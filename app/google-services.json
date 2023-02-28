@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "734024317391",
+    "project_id": "master-chef-2b951",
+    "storage_bucket": "master-chef-2b951.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734024317391:android:edbb8272ea8f2e11b97aba",
+        "android_client_info": {
+          "package_name": "com.example.topchef"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "734024317391-2i0tv4b6ckmgff8717tshuhkjcjfm4ir.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAohJ997zf0bGkJDLCtHPvWAoQrlt3RvN4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "734024317391-2i0tv4b6ckmgff8717tshuhkjcjfm4ir.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

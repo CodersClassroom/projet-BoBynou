@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/activity_main_scene"
+    tools:context=".Activities.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:text="Mail"
+            android:textAlignment="viewStart"
+            android:textColor="#F44336"
+            android:textSize="24sp" />
+        <EditText
+            android:id="@+id/Mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:text="Mot de passe"
+            android:textAlignment="viewStart"
+            android:textColor="#F44336"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/MotdePasse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/inscription_button"
+            android:layout_width="match_parent"
+            android:layout_height="82dp"
+            android:text="Inscription" />
+
+        <Button
+            android:id="@+id/retour_button"
+            android:layout_width="134dp"
+            android:layout_height="wrap_content"
+            android:text="Retour" />
+
+    </LinearLayout>
+</RelativeLayout>
